@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node-modules/@types"
+    ],
+    "lib": [
+      "es2015",
+      "es2015.iterable",
+      "dom",
+      "es5"
+    ],
+    "types": ["node"]
+  },
+  "angularCompilerOptions" : {
+    "skipMetadataEmit": true
+  }
+}
