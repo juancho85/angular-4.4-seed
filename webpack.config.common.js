@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -18,6 +19,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: ['raw-loader']
+            },
+            {
+                test: /\.scss$/,
+                loaders: ['raw-loader', 'sass-loader']
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'url-loader?limit=10000'
             }
         ],
         exprContextCritical: false
@@ -25,6 +34,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.html'
+        }),
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
         })
     ]
 }
