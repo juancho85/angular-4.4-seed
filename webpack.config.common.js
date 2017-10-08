@@ -1,7 +1,11 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/app/main.ts',
+    entry: {
+        polyfills: './src/polyfills.ts',
+        vendor: './src/vendor.ts',
+        app: './src/app/main.ts'
+    },
     resolve: {
         extensions: ['.js', '.ts']
     },
