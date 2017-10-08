@@ -2,11 +2,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: {
-        polyfills: './src/polyfills.ts',
-        vendor: './src/vendor.ts',
-        app: './src/app/main.ts'
-    },
     resolve: {
         extensions: ['.js', '.ts']
     },
@@ -22,11 +17,14 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ['raw-loader', 'sass-loader']
+                loaders: ['to-string-loader', 'css-loader', 'sass-loader'] },
+            {
+                test: /\.(woff|woff2|ttf|eot|svg)$/,
+                loaders: ['file-loader?limit=10000']
             },
             {
-                test: /\.(woff2?|ttf|eot|svg)$/,
-                loader: 'url-loader?limit=10000'
+                test: /bootstrap\/dist\/js\/umd\//,
+                loader: 'imports?jQuery=jquery'
             }
         ],
         exprContextCritical: false

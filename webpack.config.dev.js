@@ -4,6 +4,11 @@ var commonConfig = require('./webpack.config.common');
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'cheap-module-eval-source-map',
+    entry: {
+        polyfills: './src/polyfills.ts',
+        vendor: './src/vendor.ts',
+        app: './src/app/main.ts'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',

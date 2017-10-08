@@ -4,7 +4,11 @@ var webpackMerge = require('webpack-merge');
 var commonConfig = require('./webpack.config.common');
 
 module.exports = webpackMerge(commonConfig, {
-    entry: './src/app/main.aot.ts',
+    entry: {
+        polyfills: './src/polyfills.ts',
+        vendor: './src/vendor.ts',
+        app: './src/app/main.aot.ts'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
